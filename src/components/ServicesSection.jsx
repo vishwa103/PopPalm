@@ -5,8 +5,8 @@ import ServicesCrown from "../assets/servicesCrown.png";
 const ServicesSection = () => {
   return (
     <div className='services-section my-5'>
-      <div className='d-flex flex-column '>
-        <img src={ServicesCrown} className='services-crown' width="400px" alt="ServicesCrown" />
+      <div className='d-flex flex-column mt-5'>
+        <img src={ServicesCrown} className='services-crown' width="300px" alt="ServicesCrown" />
         <div className='d-flex align-items-center'>
           <h1 className='title '>Our Services </h1>&nbsp;&nbsp; <div className='subtitle mt-5'> Expertise</div>
         </div>
