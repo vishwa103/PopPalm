@@ -60,10 +60,10 @@ const HeroSection = () => {
       onHoverEnd={() => setIsHovered(false)}
     >
       <div className='leaf-right'>
-        <img src={LeafRight} alt="leaf right" />
+        <img src={LeafRight} alt="leaf right" width={383} height={384} />
       </div>
       <div className='leaf-left'>
-        <img src={LeafLeft} alt="leaf left" />
+        <img src={LeafLeft} alt="leaf left" width={378} height={395} />
       </div>
       <motion.div 
         className='hero-image-container' 
@@ -74,6 +74,8 @@ const HeroSection = () => {
           src={hero}
           alt="hero"
           className='overlay-image'
+          width={1920}
+          height={1080}
         />
         <div className='hero-subtitle-wrapper'>
           <motion.div
@@ -101,9 +103,9 @@ const HeroSection = () => {
           animate={{ x: isHovered ? -xAnimationValue : 0 }}
           transition={{ duration: 2, ease: "easeInOut", type: "spring" }}
         >
-          <h1 className='hero-title'>
+          <h2 className='hero-title'>
             Crafting Memories <b className='and-symbol'> &</b>
-          </h1>
+          </h2>
         </motion.div>
         <motion.div
           className='hero-title-wrapper'
@@ -111,9 +113,9 @@ const HeroSection = () => {
           animate={{ x: isHovered ? xAnimationValue : 0 }}
           transition={{ duration: 2, ease: "easeInOut", type: "spring" }}
         >
-          <h1 className='hero-title'>
+          <h2 className='hero-title'>
             Celebrating Moments
-          </h1>
+          </h2>
         </motion.div>
       </div>
     </motion.div>

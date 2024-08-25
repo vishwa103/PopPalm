@@ -10,6 +10,8 @@ const Header = () => {
             src={logo}
             alt="Logo"
             className="d-inline-block align-top"
+            width={120}
+            height={49}
             style={{ height: '60px' }}
           />
         </Navbar.Brand>
