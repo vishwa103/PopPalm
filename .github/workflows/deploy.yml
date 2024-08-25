@@ -16,12 +16,17 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Specify the Node.js version
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm install  # Alternative to bahmutov/npm-install
 
       - name: Build project
         run: npm run build
+
+      - name: List files in dist  # Debugging step
+        run: ls -al ./dist
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
@@ -41,6 +46,9 @@ jobs:
         with:
           name: production-files
           path: ./dist
+
+      - name: List files in dist  # Debugging step
+        run: ls -al ./dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
