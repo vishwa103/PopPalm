@@ -71,7 +71,9 @@ const TestimonialSection = () => {
                     className='row'
                 >
                     <div className='col-md-5'>
-                        <img src={testimonial.image} alt="Testimonial" width="100%" />
+                        <div className='testimonial-image-container'>
+                        <img src={testimonial.image} alt="Testimonial" className='testimonial-image' width="100%" />
+                    </div>
                     </div>
                     <div className='col-md-7 py-4'>
                         <div className='testimonial-content'>

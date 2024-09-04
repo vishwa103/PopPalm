@@ -6,6 +6,7 @@ import AboutusStar from "../assets/aboutusStar.png";
 import AboutusImageOne from "../assets/aboutusImageOne.png";
 import AboutusImageTwo from "../assets/aboutusImageTwo.png";
 import AboutusCraker from "../assets/aboutusCraker.png";
+import TextReveal from './TextReveal';
 
 
 const AboutUSSection = () => {
@@ -18,9 +19,9 @@ const AboutUSSection = () => {
                 <img src={LeafLeft} alt="leaf left" />
             </div>
             <div className='row my-3'>
-                <div className='col-md-6'>
-                    <div className='subtitle'>Let Talk about</div>
-                    <h1 className='title'> Our Story</h1>
+                <div className='col-md-6 '>
+                <TextReveal> <div className='subtitle'>Let Talk about</div></TextReveal><br/>
+                   <TextReveal> <h1 className='title'> Our Story</h1></TextReveal>
                     <img src={AboutusStar} className='aboutus-star' alt="star" />
                 </div>
                 <div className='col-md-6'>

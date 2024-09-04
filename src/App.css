@@ -12,6 +12,11 @@
   font-style: normal;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 
 
 *{
@@ -28,14 +33,51 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .title{
-  position: relative;
   font-size: 80px;
   color: var(--primary-color);
   margin: 0;
-  display: inline-block;
-  z-index: 2;
-  white-space: nowrap;
 }
+
+/* styles.css or your CSS-in-JS solution */
+  .text-reveal {
+    position: relative;
+    margin: 0;
+    display: inline-block;
+    z-index: 2;
+    white-space: nowrap;
+    overflow: hidden; /* Hide text outside the boundary */
+  }
+
+  .text-reveal::before {
+    content: '';
+    width: 0; /* Start with zero width */
+    height: 100%;
+    background: #fbff65; /* Background color for the reveal effect */
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 5px solid transparent; /* Optional border */
+    transition: width 5s ease; /* Smooth transition for width */
+    z-index: 1; /* Ensure the pseudo-element is below the text */
+    clip-path: inset(0 100% 0 0); /* Clip the pseudo-element to the left side initially */
+  }
+
+  .text-reveal span {
+    position: relative;
+    z-index: 2; /* Ensure the text is above the pseudo-element */
+    color: transparent; /* Initially hide the text */
+    transition: color 5s ease; /* Smooth transition for text visibility */
+  }
+
+  .text-reveal.animate::before {
+    width: 100%; /* Expand the pseudo-element to cover the text */
+    clip-path: inset(0 0 0 0); /* Remove clipping to reveal text */
+  }
+
+  .text-reveal.animate span {
+    color: #000; /* Change text color to make it visible */
+  }
+
 
 .subtitle{
   position: relative;
@@ -159,12 +201,19 @@ h1,h2,h3,h4,h5,h6{
 
 .hero-subtitle {
   font-size: 80px;
-  color: var(--optional-color);
   display: inline-block;
   z-index: 1;
   margin: 0;
   white-space: nowrap;
+
+  /* Set the SVG image as the text fill */
+  background-image: url('./assets/TextImage.svg'); /* Replace with your SVG path */
+  background-size: cover; /* Ensures the SVG covers the text area */
+  -webkit-background-clip: text; /* Clips the background to the text */
+  background-clip: text; /* For non-webkit browsers */
+  color: transparent; /* Make the text color transparent to show the background image */
 }
+
 
 .hero-image-container{
   position: absolute;
@@ -377,6 +426,20 @@ h1,h2,h3,h4,h5,h6{
   height: 100%;
 }
 
+.testimonial-image-container{
+  position: relative;
+  object-fit: cover ;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.testimonial-image{
+  object-fit: cover;
+  height: 100%;
+  border-radius: 10px;
+
+}
+
 
 .indicators {
   position: relative;
@@ -486,4 +549,214 @@ h1,h2,h3,h4,h5,h6{
     gap: 10px;
     flex-direction: column;
   }
+}
+
+
+.gallerypage{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; 
+}
+
+.right-top{
+
+  position: absolute;
+  width: 25%;
+  right: 0;
+  top: 100px;
+  
+}
+
+.left-bottom{
+  position: absolute;
+  width: 25%;
+  left: 0;
+  bottom: 0;
+}
+
+
+.gallerypage-title {
+  font-size: 80px;
+  color: var(--primary-color);
+  margin: 0;
+  display: inline-block;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.gallerypage-description{
+  font-size: 20px;
+  font-weight: 200;
+}
+
+
+.gallerypage-categories{
+  display: flex;
+  gap: 20px;
+}
+
+.gallerypage-category{
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  padding: 5px 25px;
+  border-radius: 10px;
+}
+
+.gallerypage-card {
+  position: relative;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 200px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallerypage-leftimage {
+  object-fit: cover;
+  height: 300px;
+  position: absolute; /* Position it absolutely within the card */
+  top: 0;
+  left: 0%; /* Start off-screen to the right */
+  width: 208%; 
+  border-radius: 10px;
+  transition: width 2s ease; /* Smooth transition for desktop */
+}
+
+.gallerypage-rightimage {
+  object-fit: cover;
+  height: 300px;
+  position: absolute; /* Position it absolutely within the card */
+  top: 0;
+  right: 0; /* Start off-screen to the right */
+  width: 208%; /* Adjust based on your design needs */
+  transition: right 2s ease;
+  border-radius: 10px;
+  transition: width 2s ease; /* Smooth transition for desktop */
+}
+
+.gallerypage-leftimage-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 20px 10px;
+  position: absolute; /* Position it absolutely within the card */
+  top: 0;
+  right: -100%; /* Start off-screen to the right */
+  width: 50%; /* Adjust based on your design needs */
+  transition: right 2s ease; /* Smooth transition for desktop */
+}
+
+.gallerypage-rightimage-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 20px 10px;
+  position: absolute; /* Position it absolutely within the card */
+  top: 0;
+  left: -100%; /* Start off-screen to the right */
+  width: 50%; /* Adjust based on your design needs */
+  transition: left 2s ease; /* Smooth transition for desktop */
+}
+
+.gallerypage-card:hover .gallerypage-leftimage {
+  width: 100%;
+}
+
+.gallerypage-card:hover .gallerypage-rightimage {
+  width: 100%;
+}
+
+
+.gallerypage-card:hover .gallerypage-leftimage-content {
+  right: 0; /* Slide in to visible area on hover */
+}
+
+.gallerypage-card:hover .gallerypage-rightimage-content {
+  left: 0; /* Slide in to visible area on hover */
+}
+
+/* Media query to disable animations on mobile */
+@media (max-width: 767px) {
+  .gallerypage-leftimage, .gallerypage-rightimage{
+    transition: none; /* Disable width transition */
+    width: 100%; /* Ensure image width is 100% on mobile */
+  }
+
+  .gallerypage-leftimage-content {
+    position: relative;
+    width: 100%; 
+    transition: none; /* Disable right transition */
+    right: 0; /* Ensure content is visible on mobile */
+  }
+
+  .gallerypage-rightimage-content {
+    position: relative;
+    width: 100%; 
+    transition: none; /* Disable right transition */
+    left: 0; /* Ensure content is visible on mobile */
+  }
+
+  .gallerypage-categories{
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+
+
+.gallerypage-image-container{
+  position: relative;
+  object-fit: cover;
+  height: 100%;
+  min-height: 300px;
+  border-radius: 10px;
+}
+
+
+.gallerypage-double-quote{
+  color:#f100a1;
+  font-size: 50px;
+  line-height: 0;
+}
+
+
+
+.gallerypage-image-title{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.gallerypage-image-description{
+  font-size: 14px;
+  font-weight: 200;
+}
+
+
+
+@media (max-width: 767px) {
+  .right-top{
+
+    width: 50%;
+    
+  }
+  
+  .left-bottom{
+    width: 50%;
+  }
+  .gallerypage-title {
+    font-size: 32px; /* Smaller font size for mobile screens */
+  }
+
 }

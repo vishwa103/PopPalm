@@ -1,5 +1,6 @@
 import React from 'react'
 import ServicesCrown from "../assets/servicesCrown.png";
+import TextReveal from './TextReveal';
 
 
 const ServicesSection = () => {
@@ -8,7 +9,7 @@ const ServicesSection = () => {
       <div className='d-flex flex-column mt-5'>
         <img src={ServicesCrown} className='services-crown' width="300px" alt="ServicesCrown" />
         <div className='d-flex align-items-center'>
-          <h1 className='title '>Our Services </h1>&nbsp;&nbsp; <div className='subtitle mt-5'> Expertise</div>
+        <TextReveal> <h1 className='title '>Our Services </h1> </TextReveal> &nbsp;&nbsp; <TextReveal><div className='subtitle mt-5'> Expertise</div></TextReveal>
         </div>
       </div>
 
