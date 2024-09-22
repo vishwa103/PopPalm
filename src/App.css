@@ -5,8 +5,8 @@
 @font-face {
   font-family: 'Boska-Variable';
   src: url('./assets/font/Boska-Variable.woff2') format('woff2'),
-       url('./assets/font/Boska-Variable.woff') format('woff'),
-       url('./assets/font/Boska-Variable.ttf') format('truetype');
+    url('./assets/font/Boska-Variable.woff') format('woff'),
+    url('./assets/font/Boska-Variable.ttf') format('truetype');
   font-weight: 200 900;
   font-display: swap;
   font-style: normal;
@@ -19,91 +19,133 @@ html {
 
 
 
-*{
+* {
   font-family: "Poppins", sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Boska-Variable', sans-serif;
 }
 
-.and-symbol{
+.and-symbol {
   font-family: "Playfair Display", serif;
-  color:var(--optional-color)
+  color: var(--optional-color)
 }
 
-.title{
+.title {
+  position: relative;
   font-size: 80px;
   color: var(--primary-color);
   margin: 0;
+  z-index: 2;
 }
 
 /* styles.css or your CSS-in-JS solution */
-  .text-reveal {
-    position: relative;
-    margin: 0;
-    display: inline-block;
-    z-index: 2;
-    white-space: nowrap;
-    overflow: hidden; /* Hide text outside the boundary */
+.left-to-right-reveal {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  margin: 0;
+  width: 100%;
+  /* Initially set width to 0 */
+}
+
+.reveal-content {
+  display: inline-block;
+  position: relative;
+}
+
+.left-to-right-reveal.animate {
+  animation: leftreveal 3s ease-out;
+  /* Adjust timing as needed */
+}
+
+@keyframes leftreveal {
+  from {
+    width: 0;
   }
 
-  .text-reveal::before {
-    content: '';
-    width: 0; /* Start with zero width */
+  to {
+    width: 100%;
+    /* Ensure it reveals fully */
+  }
+}
+
+/* styles.css or your CSS-in-JS solution */
+.top-to-bottom-reveal {
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  height: 0;
+  /* Initially set height to 0 */
+}
+
+.tbreveal-content {
+  display: block;
+  position: relative;
+}
+
+.top-to-bottom-reveal.tbanimate {
+  height: auto;
+  /* Change height to auto when animating */
+  animation: topreveal 3s ease-out;
+  /* Adjust timing as needed */
+}
+
+@keyframes topreveal {
+  from {
+    height: 0;
+  }
+
+  to {
     height: 100%;
-    background: #fbff65; /* Background color for the reveal effect */
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-right: 5px solid transparent; /* Optional border */
-    transition: width 5s ease; /* Smooth transition for width */
-    z-index: 1; /* Ensure the pseudo-element is below the text */
-    clip-path: inset(0 100% 0 0); /* Clip the pseudo-element to the left side initially */
+    /* Ensure it reveals fully */
   }
+}
 
-  .text-reveal span {
-    position: relative;
-    z-index: 2; /* Ensure the text is above the pseudo-element */
-    color: transparent; /* Initially hide the text */
-    transition: color 5s ease; /* Smooth transition for text visibility */
-  }
+.visible-reveal {
+  opacity: 0;
+  /* Start with opacity 0 */
+  transition: opacity 3s ease-out;
+  /* Smooth transition to opacity 1 */
+}
 
-  .text-reveal.animate::before {
-    width: 100%; /* Expand the pseudo-element to cover the text */
-    clip-path: inset(0 0 0 0); /* Remove clipping to reveal text */
-  }
+.visible-reveal.vbanimate {
+  opacity: 1;
+  /* End with opacity 1 when animated */
+}
 
-  .text-reveal.animate span {
-    color: #000; /* Change text color to make it visible */
-  }
-
-
-.subtitle{
+.subtitle {
   position: relative;
   font-family: "Bonheur Royale", cursive;
   color: var(--black-color);
   font-size: 24px;
+  z-index: 2;
   margin: 0;
 }
 
-.description{
+.description {
   font-size: 16px;
   margin: 0;
   z-index: 2;
 }
 
-:root{
-  --background-color:#FFF2EC;
-  --primary-color:#347440;
-  --secondary-color:#FFC3AB;
-  --border-color:#DDAAAA;
-  --input-background:#F3F1ED;
-  --optional-color:#DAA547;
-  --black-color:#222222;
+:root {
+  --background-color: #FFF2EC;
+  --primary-color: #347440;
+  --secondary-color: #FFC3AB;
+  --border-color: #DDAAAA;
+  --input-background: #F3F1ED;
+  --optional-color: #DAA547;
+  --black-color: #222222;
 }
 
-.global-style{
+.global-style {
   background-color: var(--background-color);
   height: 100vh;
   overflow-x: hidden;
@@ -113,22 +155,27 @@ h1,h2,h3,h4,h5,h6{
 .header {
   position: relative;
   padding: 10px 20px;
-  z-index: 1000; /* Ensure it's on top of other elements */
+  z-index: 1000;
+  /* Ensure it's on top of other elements */
 }
 
 .navbar-nav {
-  margin-left: auto; /* Pushes the logo to the right */
+  margin-left: auto;
+  /* Pushes the logo to the right */
 }
 
 .navbar-brand {
   padding-left: 20px;
-  margin-right: auto; /* Moves the logo to the right end */
+  margin-right: auto;
+  /* Moves the logo to the right end */
 }
 
 .navbar-nav .nav-link {
-  color: var(--primary-color) !important; /* Change link color */
+  color: var(--primary-color) !important;
+  /* Change link color */
   margin: 0 10px;
-  padding: 10px; /* Adjust the gap between links */
+  padding: 10px;
+  /* Adjust the gap between links */
 }
 
 .navbar-nav .nav-link:hover {
@@ -139,7 +186,7 @@ h1,h2,h3,h4,h5,h6{
   .navbar-nav {
     background: var(--secondary-color);
     border-radius: 20px;
-    max-width:130px;
+    max-width: 130px;
   }
 }
 
@@ -152,12 +199,15 @@ h1,h2,h3,h4,h5,h6{
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden; /* Ensure no overflow from positioned elements */
+  overflow: hidden;
+  /* Ensure no overflow from positioned elements */
 }
 
-.leaf-right, .leaf-left {
+.leaf-right,
+.leaf-left {
   position: absolute;
-  width: 25%; /* Ensure leaves are behind the text */
+  width: 25%;
+  /* Ensure leaves are behind the text */
 }
 
 .leaf-right {
@@ -166,30 +216,35 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .leaf-left {
-  
-  top:50%;
+
+  top: 50%;
   bottom: 0;
   right: 0;
 }
 
 .hero-title-wrapper {
-  position: relative; 
-  
+  position: relative;
+
 }
-  .hero-subtitle-wrapper, .hero-titles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    color: white; /* Adjust as needed */
-    z-index: 1; /* Ensure text is above the image */
-  }
+
+.hero-subtitle-wrapper,
+.hero-titles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  /* Adjust as needed */
+  z-index: 1;
+  /* Ensure text is above the image */
+}
+
 .hero-title {
   font-size: 80px;
   color: var(--primary-color);
@@ -205,52 +260,59 @@ h1,h2,h3,h4,h5,h6{
   z-index: 1;
   margin: 0;
   white-space: nowrap;
-
   /* Set the SVG image as the text fill */
-  background-image: url('./assets/TextImage.svg'); /* Replace with your SVG path */
-  background-size: cover; /* Ensures the SVG covers the text area */
-  -webkit-background-clip: text; /* Clips the background to the text */
-  background-clip: text; /* For non-webkit browsers */
-  color: transparent; /* Make the text color transparent to show the background image */
+  background: var(--primary-color);
+  /* background-image: url('./assets/TextImage.svg'); Replace with your SVG path */
+  background-size: cover;
+  /* Ensures the SVG covers the text area */
+  -webkit-background-clip: text;
+  /* Clips the background to the text */
+  background-clip: text;
+  /* For non-webkit browsers */
+  color: transparent;
+  /* Make the text color transparent to show the background image */
 }
 
 
-.hero-image-container{
+.hero-image-container {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 5;
-  display: flex; 
-  overflow: hidden; 
+  display: flex;
+  overflow: hidden;
 }
 
 .overlay-image {
-  object-fit: cover; 
+  object-fit: cover;
   width: 100%;
-  height: 100%; /* Ensure image covers the container */
+  height: 100%;
 }
 
-
 @media (max-width: 768px) {
-  .hero-subtitle, .hero-title {
-    font-size: 60px; /* Smaller font size for mobile screens */
+
+  .hero-subtitle,
+  .hero-title {
+    font-size: 60px;
+    /* Smaller font size for mobile screens */
   }
 
-  .title{
+  .title {
     font-size: 50px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-subtitle, .hero-title {
-    font-size: 30px; /* Even smaller font size for very small screens */
+
+  .hero-subtitle,
+  .hero-title {
+    font-size: 30px;
+    /* Even smaller font size for very small screens */
   }
 }
 
-
 /* About us section */
-
-.aboutus-section{
+.aboutus-section {
   position: relative;
   width: 100%;
   padding: 0px 20px;
@@ -258,33 +320,35 @@ h1,h2,h3,h4,h5,h6{
   z-index: 2;
 }
 
-.aboutus-leaf-right ,.aboutus-leaf-left{
+.aboutus-leaf-right,
+.aboutus-leaf-left {
   position: absolute;
   z-index: 1;
-  pointer-events: none; 
+  pointer-events: none;
 }
-.aboutus-leaf-left{
+
+.aboutus-leaf-left {
   top: 50px;
   left: 0;
 }
 
-.aboutus-leaf-right{
-  top:90%;
+.aboutus-leaf-right {
+  top: 90%;
   bottom: 0;
   right: 0;
 }
 
-.aboutus-star{
+.aboutus-star {
   position: absolute;
- 
 }
 
-.aboutus-cracker{
+.aboutus-cracker {
   position: absolute;
   top: -45px;
   left: 90%;
 }
-.aboutus-image{
+
+.aboutus-image {
   position: relative;
   width: 100%;
   margin: 10px 0;
@@ -294,7 +358,7 @@ h1,h2,h3,h4,h5,h6{
 
 /* Services section */
 
-.services-section{
+.services-section {
   position: relative;
   width: 100%;
   padding: 0px 20px;
@@ -302,27 +366,33 @@ h1,h2,h3,h4,h5,h6{
   z-index: 2;
 }
 
-.service-number{
+.service-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.service-number {
   color: var(--black-color);
   font-size: 52px;
 }
 
-.service-title{
+.service-title {
   font-size: 24px;
   font-weight: 400;
 }
 
-.service-subtitle{
+.service-subtitle {
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: 250;
 }
 
-.service-item-title{
+.service-item-title {
   color: var(--optional-color);
 }
 
-.service-item-descrition{
+.service-item-descrition {
   margin: 20px 0;
   font-size: 16px;
   font-weight: 300;
@@ -330,7 +400,8 @@ h1,h2,h3,h4,h5,h6{
 
 .service-item-hr {
   border: 0;
-  border-top: 1px solid var(--secondary-color); /* Adjust thickness and color */
+  border-top: 1px solid var(--secondary-color);
+  /* Adjust thickness and color */
 }
 
 
@@ -338,15 +409,18 @@ h1,h2,h3,h4,h5,h6{
   position: absolute;
   border: 0;
   border-top: 1px solid var(--border-color);
-  width: 100%;  /* Ensures the line takes up the full width of its container */
-  margin: 0;    /* Removes default margins that might affect the width */
-  padding: 0;   /* Removes default padding that might affect the width */
+  width: 100%;
+  /* Ensures the line takes up the full width of its container */
+  margin: 0;
+  /* Removes default margins that might affect the width */
+  padding: 0;
+  /* Removes default padding that might affect the width */
 }
 
 
 /* Gallery Section */
 
-.gallery-section{
+.gallery-section {
   position: relative;
   width: 100%;
   padding: 0px 20px;
@@ -354,16 +428,19 @@ h1,h2,h3,h4,h5,h6{
   z-index: 2;
 }
 
-.gallery-hr{
+.gallery-hr {
   border: 0;
   border-top: 2px solid var(--border-color);
-  width: 100%;  /* Ensures the line takes up the full width of its container */
-  margin: 0;  
-  margin-top: 50px;  /* Removes default margins that might affect the width */
-  padding: 0; 
+  width: 100%;
+  /* Ensures the line takes up the full width of its container */
+
+  margin: 0;
+  margin-top: 50px;
+  /* Removes default margins that might affect the width */
+  padding: 0;
 }
 
-.gallery-design-right{
+.gallery-design-right {
   position: absolute;
   top: 95%;
   bottom: 0;
@@ -373,71 +450,70 @@ h1,h2,h3,h4,h5,h6{
 
 /* Testimonial Section */
 
-.testimonial-section{
+.testimonial-section {
   position: relative;
   width: 100%;
   padding: 0px 20px;
-  
+
   padding-top: 70px;
   z-index: 2;
 }
 
-.testimonial-design-left{
+.testimonial-design-left {
   position: absolute;
   top: 25%;
   left: 0;
 }
 
-.testimonial-design-right{
+.testimonial-design-right {
   position: absolute;
   top: 100%;
   bottom: 0;
   right: 0;
 }
 
-.testimonial-container{
+.testimonial-container {
   position: relative;
-  border:1px solid var(--border-color);
-  background: rgb(255, 255, 255,0.5);
+  border: 1px solid var(--border-color);
+  background: rgb(255, 255, 255, 0.5);
   padding: 20px;
   border-radius: 10px;
   min-height: 400px;
 }
 
-.testimonial-title{
+.testimonial-title {
   font-size: 40px;
 }
 
-.testimonial-description{
+.testimonial-description {
   font-size: 20px;
   font-weight: 200;
 }
 
-.testimonial-username{
+.testimonial-username {
   font-size: 24px;
   font-weight: 300;
   display: flex;
 }
 
-.testimonial-content{
+.testimonial-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
 }
 
-.testimonial-image-container{
+.testimonial-image-container {
   position: relative;
-  object-fit: cover ;
+  object-fit: cover;
   height: 100%;
   border-radius: 10px;
 }
 
-.testimonial-image{
+.testimonial-image {
   object-fit: cover;
   height: 100%;
   border-radius: 10px;
-
 }
 
 
@@ -464,41 +540,41 @@ h1,h2,h3,h4,h5,h6{
 
 /* Contact section */
 
-.contact-section{
+.contact-section {
   position: relative;
   width: 100%;
   padding: 0px 20px;
-  
+
   padding-top: 70px;
   z-index: 2;
 }
 
-.contact-title{
+.contact-title {
   font-size: 34px;
   font-weight: 200;
 }
 
-.contact-label{
+.contact-label {
   font-size: 13px;
   color: var(--black-color);
   font-weight: 200;
 }
 
-.contact-input{
+.contact-input {
   background-color: var(--input-background);
   border: 1px solid #D8D8DA;
   border-radius: 6px;
   padding: 10px;
 }
 
-.contact-design-left{
+.contact-design-left {
   position: absolute;
   top: 100%;
   bottom: 0;
   left: 0;
 }
 
-.button-primary{
+.button-primary {
   border: none;
   padding: 10px 20px;
   border-radius: 6px;
@@ -509,50 +585,57 @@ h1,h2,h3,h4,h5,h6{
 
 /* Footer Section */
 
-.footer-section{
+.footer-section {
   position: relative;
   width: 100%;
   padding: 0px 20px;
-  
+
   padding-top: 70px;
   z-index: 2;
 }
 
-.footer-hr{
+.footer-hr {
   border: 0;
   border-top: 2px solid var(--border-color);
-  width: 100%;  /* Ensures the line takes up the full width of its container */
-  margin: 0;  
-  margin-top: 50px;  /* Removes default margins that might affect the width */
-  padding: 0; 
+  width: 100%;
+  /* Ensures the line takes up the full width of its container */
+  margin: 0;
+  margin-top: 50px;
+  /* Removes default margins that might affect the width */
+  padding: 0;
 }
 
-.footer-links{
+.footer-links {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
-.footer-link{
+.footer-link {
   color: var(--border-color);
   text-decoration: none;
 }
 
-.footer-text{
+.footer-text {
   font-size: 12px;
   color: var(--border-color);
 }
 
 
 @media (max-width: 767px) {
-  .footer-links{
+  .footer-links {
     gap: 10px;
     flex-direction: column;
+  }
+
+  .service-header {
+    flex-direction: column;
+    align-items: start;
   }
 }
 
 
-.gallerypage{
+.gallerypage {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -560,19 +643,18 @@ h1,h2,h3,h4,h5,h6{
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-.right-top{
-
+.right-top {
   position: absolute;
   width: 25%;
   right: 0;
   top: 100px;
-  
+
 }
 
-.left-bottom{
+.left-bottom {
   position: absolute;
   width: 25%;
   left: 0;
@@ -589,18 +671,18 @@ h1,h2,h3,h4,h5,h6{
   white-space: nowrap;
 }
 
-.gallerypage-description{
+.gallerypage-description {
   font-size: 20px;
   font-weight: 200;
 }
 
 
-.gallerypage-categories{
+.gallerypage-categories {
   display: flex;
   gap: 20px;
 }
 
-.gallerypage-category{
+.gallerypage-category {
   color: var(--primary-color);
   background: var(--secondary-color);
   padding: 5px 25px;
@@ -622,24 +704,31 @@ h1,h2,h3,h4,h5,h6{
 .gallerypage-leftimage {
   object-fit: cover;
   height: 300px;
-  position: absolute; /* Position it absolutely within the card */
+  position: absolute;
+  /* Position it absolutely within the card */
   top: 0;
-  left: 0%; /* Start off-screen to the right */
-  width: 208%; 
+  left: 0%;
+  /* Start off-screen to the right */
+  width: 208%;
   border-radius: 10px;
-  transition: width 2s ease; /* Smooth transition for desktop */
+  transition: width 2s ease;
+  /* Smooth transition for desktop */
 }
 
 .gallerypage-rightimage {
   object-fit: cover;
   height: 300px;
-  position: absolute; /* Position it absolutely within the card */
+  position: absolute;
+  /* Position it absolutely within the card */
   top: 0;
-  right: 0; /* Start off-screen to the right */
-  width: 208%; /* Adjust based on your design needs */
+  right: 0;
+  /* Start off-screen to the right */
+  width: 208%;
+  /* Adjust based on your design needs */
   transition: right 2s ease;
   border-radius: 10px;
-  transition: width 2s ease; /* Smooth transition for desktop */
+  transition: width 2s ease;
+  /* Smooth transition for desktop */
 }
 
 .gallerypage-leftimage-content {
@@ -648,11 +737,15 @@ h1,h2,h3,h4,h5,h6{
   justify-content: space-between;
   height: 100%;
   padding: 20px 10px;
-  position: absolute; /* Position it absolutely within the card */
+  position: absolute;
+  /* Position it absolutely within the card */
   top: 0;
-  right: -100%; /* Start off-screen to the right */
-  width: 50%; /* Adjust based on your design needs */
-  transition: right 2s ease; /* Smooth transition for desktop */
+  right: -100%;
+  /* Start off-screen to the right */
+  width: 50%;
+  /* Adjust based on your design needs */
+  transition: right 2s ease;
+  /* Smooth transition for desktop */
 }
 
 .gallerypage-rightimage-content {
@@ -661,11 +754,15 @@ h1,h2,h3,h4,h5,h6{
   justify-content: space-between;
   height: 100%;
   padding: 20px 10px;
-  position: absolute; /* Position it absolutely within the card */
+  position: absolute;
+  /* Position it absolutely within the card */
   top: 0;
-  left: -100%; /* Start off-screen to the right */
-  width: 50%; /* Adjust based on your design needs */
-  transition: left 2s ease; /* Smooth transition for desktop */
+  left: -100%;
+  /* Start off-screen to the right */
+  width: 50%;
+  /* Adjust based on your design needs */
+  transition: left 2s ease;
+  /* Smooth transition for desktop */
 }
 
 .gallerypage-card:hover .gallerypage-leftimage {
@@ -678,35 +775,45 @@ h1,h2,h3,h4,h5,h6{
 
 
 .gallerypage-card:hover .gallerypage-leftimage-content {
-  right: 0; /* Slide in to visible area on hover */
+  right: 0;
+  /* Slide in to visible area on hover */
 }
 
 .gallerypage-card:hover .gallerypage-rightimage-content {
-  left: 0; /* Slide in to visible area on hover */
+  left: 0;
+  /* Slide in to visible area on hover */
 }
 
 /* Media query to disable animations on mobile */
 @media (max-width: 767px) {
-  .gallerypage-leftimage, .gallerypage-rightimage{
-    transition: none; /* Disable width transition */
-    width: 100%; /* Ensure image width is 100% on mobile */
+
+  .gallerypage-leftimage,
+  .gallerypage-rightimage {
+    transition: none;
+    /* Disable width transition */
+    width: 100%;
+    /* Ensure image width is 100% on mobile */
   }
 
   .gallerypage-leftimage-content {
     position: relative;
-    width: 100%; 
-    transition: none; /* Disable right transition */
-    right: 0; /* Ensure content is visible on mobile */
+    width: 100%;
+    transition: none;
+    /* Disable right transition */
+    right: 0;
+    /* Ensure content is visible on mobile */
   }
 
   .gallerypage-rightimage-content {
     position: relative;
-    width: 100%; 
-    transition: none; /* Disable right transition */
-    left: 0; /* Ensure content is visible on mobile */
+    width: 100%;
+    transition: none;
+    /* Disable right transition */
+    left: 0;
+    /* Ensure content is visible on mobile */
   }
 
-  .gallerypage-categories{
+  .gallerypage-categories {
     flex-direction: column;
     text-align: center;
   }
@@ -715,7 +822,7 @@ h1,h2,h3,h4,h5,h6{
 
 
 
-.gallerypage-image-container{
+.gallerypage-image-container {
   position: relative;
   object-fit: cover;
   height: 100%;
@@ -723,22 +830,19 @@ h1,h2,h3,h4,h5,h6{
   border-radius: 10px;
 }
 
-
-.gallerypage-double-quote{
-  color:#f100a1;
+.gallerypage-double-quote {
+  color: #f100a1;
   font-size: 50px;
   line-height: 0;
 }
 
-
-
-.gallerypage-image-title{
+.gallerypage-image-title {
   font-size: 20px;
   font-weight: 400;
   line-height: 1.2;
 }
 
-.gallerypage-image-description{
+.gallerypage-image-description {
   font-size: 14px;
   font-weight: 200;
 }
@@ -746,17 +850,66 @@ h1,h2,h3,h4,h5,h6{
 
 
 @media (max-width: 767px) {
-  .right-top{
+  .right-top {
 
     width: 50%;
-    
+
   }
-  
-  .left-bottom{
+
+  .left-bottom {
     width: 50%;
   }
+
   .gallerypage-title {
-    font-size: 32px; /* Smaller font size for mobile screens */
+    font-size: 32px;
+    /* Smaller font size for mobile screens */
   }
 
+}
+
+
+
+/* SERVICES PAGE SECTION  */
+
+.servicespage-section {
+  position: relative;
+  width: 100%;
+  padding: 0px 20px;
+}
+
+.servicepage-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  min-height: 320px;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.servicepage-card-title {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+.servicepage-card-description{
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.servicepage-card-image-container{
+  position: relative;
+  object-fit: cover;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.servicepage-card-image{
+  object-fit: cover;
+  height: 100%;
+  border-radius: 10px;
 }

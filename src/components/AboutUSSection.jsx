@@ -6,7 +6,8 @@ import AboutusStar from "../assets/aboutusStar.png";
 import AboutusImageOne from "../assets/aboutusImageOne.png";
 import AboutusImageTwo from "../assets/aboutusImageTwo.png";
 import AboutusCraker from "../assets/aboutusCraker.png";
-import TextReveal from './TextReveal';
+import LeftToRightReveal from './LeftToRightReveal';
+import TopToBottomReveal from './TopToBottomReveal';
 
 
 const AboutUSSection = () => {
@@ -20,23 +21,32 @@ const AboutUSSection = () => {
             </div>
             <div className='row my-3'>
                 <div className='col-md-6 '>
-                <TextReveal> <div className='subtitle'>Let Talk about</div></TextReveal><br/>
-                   <TextReveal> <h1 className='title'> Our Story</h1></TextReveal>
+                    <LeftToRightReveal> <div className='subtitle'>Let Talk about</div></LeftToRightReveal>
+                    <LeftToRightReveal> <h1 className='title'> Our Story</h1></LeftToRightReveal>
                     <img src={AboutusStar} className='aboutus-star' alt="star" />
                 </div>
                 <div className='col-md-6'>
-                    <div className='description'>
-                        Founded by two friends who shared a passion for creative artistry, Pop & Palm Events began its journey with humble origins. Initially focusing on crafting memorable birthday parties for their own children, they discovered a shared talent and enthusiasm for event decor. With little formal business knowledge but a wealth of creativity and determination, they took the leap into professional event planning.
-                    </div>
+                    <TopToBottomReveal>
+                        <div className='description'>
+                            Founded by two friends who shared a passion for creative artistry, Pop & Palm Events began its journey with humble origins. Initially focusing on crafting memorable birthday parties for their own children, they discovered a shared talent and enthusiasm for event decor. With little formal business knowledge but a wealth of creativity and determination, they took the leap into professional event planning.
+                        </div>
+                    </TopToBottomReveal>
                 </div>
             </div>
+
             <div className='row my-3'>
                 <div className='col-md-4'>
-                    <img src={AboutusImageOne} className='aboutus-image' alt="AboutusImageOne" />
+
+                    <TopToBottomReveal>
+                        <img src={AboutusImageOne} className='aboutus-image' alt="AboutusImageOne" />
+                    </TopToBottomReveal>
                 </div>
-                <div className='col-md-8' style={{position:"relative"}}>
+                <div className='col-md-8' style={{ position: "relative" }}>
+                <TopToBottomReveal>
                     <img src={AboutusImageTwo} className='aboutus-image' alt="AboutusImageTwo" />
+                    </TopToBottomReveal>
                     <img src={AboutusCraker} className='aboutus-cracker' alt="AboutusCraker" />
+                   
 
                 </div>
             </div>

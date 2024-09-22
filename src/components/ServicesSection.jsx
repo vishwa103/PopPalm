@@ -1,6 +1,8 @@
 import React from 'react'
 import ServicesCrown from "../assets/servicesCrown.png";
-import TextReveal from './TextReveal';
+import LeftToRightReveal from './LeftToRightReveal';
+import TopToBottomReveal from './TopToBottomReveal';
+import { Link } from 'react-router-dom';
 
 
 const ServicesSection = () => {
@@ -8,30 +10,33 @@ const ServicesSection = () => {
     <div className='services-section my-5'>
       <div className='d-flex flex-column mt-5'>
         <img src={ServicesCrown} className='services-crown' width="300px" alt="ServicesCrown" />
-        <div className='d-flex align-items-center'>
-        <TextReveal> <h1 className='title '>Our Services </h1> </TextReveal> &nbsp;&nbsp; <TextReveal><div className='subtitle mt-5'> Expertise</div></TextReveal>
+        <div className='service-header'>
+        <LeftToRightReveal> <div className='d-flex align-items-end'>
+        
+        <h1 className='title'>Our Services </h1> 
+         &nbsp;&nbsp; 
+        <div className='subtitle mb-1'> Expertise</div>
+
+        </div></LeftToRightReveal>
+        <Link to="/services"><button className='button-primary ' style={{width:"200px"}}>Learn more &rarr;</button></Link>
+
         </div>
       </div>
 
       <div className='row'>
-        <div className='col-md-12 col-lg-4 my-3'>
+        <div className='col-md-12 col-lg-3 my-3'>
+          <TopToBottomReveal>
           <div className='d-flex align-items-center gap-3'>
-            <h1 className='service-number'>01</h1>
+            <h1 className='service-number'>01</h1> 
             <div className='service-title'>Themed Private Celebrations</div>
           </div>
+          
           <div className='service-subtitle '>
             Unique themed decor and planning for private parties and family events.
           </div>
+          
           <div className='service-hr' />
-          <div className='my-5'>
-            <div className='service-item-title'>
-              Ceremony Decor:
-            </div>
-            <div className='service-item-descrition'>
-              Customizing altar arrangements, aisle runners, and seating layouts to match the wedding theme.
-            </div>
-            <div className='service-item-hr'/>
-          </div>
+          
           <div className='my-5'>
             <div className='service-item-title'>
               Ceremony Decor:
@@ -42,8 +47,19 @@ const ServicesSection = () => {
             <div className='service-item-hr'/>
           </div>
 
+          <div className='my-5'>
+            <div className='service-item-title'>
+              Ceremony Decor:
+            </div>
+            <div className='service-item-descrition'>
+              Customizing altar arrangements, aisle runners, and seating layouts to match the wedding theme.
+            </div>
+            <div className='service-item-hr'/>
+          </div>
+          </TopToBottomReveal>
         </div>
-        <div className='col-md-12 col-lg-4 my-3'>
+        <div className='col-md-12 col-lg-3 my-3'>
+        <TopToBottomReveal>
           <div className='d-flex align-items-center gap-3'>
             <h1 className='service-number'>02</h1>
             <div className='service-title'>Exclusive Corporate Event</div>
@@ -70,9 +86,10 @@ const ServicesSection = () => {
              </div>
             <div className='service-item-hr'/>
           </div>
-
+          </TopToBottomReveal>
         </div>
-        <div className='col-md-12 col-lg-4 my-3'>
+        <div className='col-md-12 col-lg-3 my-3'>
+        <TopToBottomReveal>
           <div className='d-flex align-items-center gap-3'>
             <h1 className='service-number'>03</h1>
             <div className='service-title'>Event Furniture Rentals</div>
@@ -100,9 +117,42 @@ const ServicesSection = () => {
             </div>
             <div className='service-item-hr'/>
           </div>
-
+          </TopToBottomReveal>
         </div>
+        <div className='col-md-12 col-lg-3 my-3'>
+          <TopToBottomReveal>
+          <div className='d-flex align-items-center gap-3'>
+            <h1 className='service-number'>04</h1> 
+            <div className='service-title'>Themed Private Celebrations</div>
+          </div>
+          
+          <div className='service-subtitle '>
+            Unique themed decor and planning for private parties and family events.
+          </div>
+          
+          <div className='service-hr' />
+          
+          <div className='my-5'>
+            <div className='service-item-title'>
+              Ceremony Decor:
+            </div>
+            <div className='service-item-descrition'>
+              Customizing altar arrangements, aisle runners, and seating layouts to match the wedding theme.
+            </div>
+            <div className='service-item-hr'/>
+          </div>
 
+          <div className='my-5'>
+            <div className='service-item-title'>
+              Ceremony Decor:
+            </div>
+            <div className='service-item-descrition'>
+              Customizing altar arrangements, aisle runners, and seating layouts to match the wedding theme.
+            </div>
+            <div className='service-item-hr'/>
+          </div>
+          </TopToBottomReveal>
+        </div>
 
       </div>
 

@@ -96,6 +96,7 @@ const galleryItems = [
 ];
 
 import { Helmet } from 'react-helmet-async';
+import TopToBottomReveal from '../components/TopToBottomReveal';
 
 const Gallery = () => {
 
@@ -140,9 +141,12 @@ const Gallery = () => {
           </div>
         ))}
       </div>
+      
       <div className='row my-5'>
+        
         {filteredItems.map((item, index) => (
           <div className='col-md-6 mb-3' key={item.id}>
+            
             <div className='gallerypage-card'>
               <div className='row'>
                 <div className={`col-md-6 ${index % 4 < 2 ? 'order-md-1' : 'order-md-2'}`}>

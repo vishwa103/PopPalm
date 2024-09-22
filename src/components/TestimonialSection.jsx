@@ -6,6 +6,8 @@ import TestimonialImageOne from "../assets/TestimonialImageOne.png";
 import TestimonialImageTwo from "../assets/TestimonialImageTwo.png";
 import TestimonialImageThree from "../assets/TestimonialImageThree.png";
 import TestimonialUserLine from "../assets/TestimonialUserLine.png";
+import LeftToRightReveal from './LeftToRightReveal';
+import VisibleReveal from './VisibleReveal';
 
 const testimonials = [
     {
@@ -60,9 +62,12 @@ const TestimonialSection = () => {
             <div className='testimonial-design-right'>
                 <img src={TestimonialDesignRight} alt="TestimonialDesignRight" />
             </div>
+            <LeftToRightReveal>
             <div className='d-flex align-items-center'>
                 <h1 className='title '>Testimonials </h1>&nbsp;&nbsp; <div className='subtitle mt-5'> Here from our Clients</div>
             </div>
+            </LeftToRightReveal>
+            <VisibleReveal>
             <div className='testimonial-container'>
                 <motion.div
                     initial={{ opacity: 1 }}
@@ -71,7 +76,7 @@ const TestimonialSection = () => {
                     className='row'
                 >
                     <div className='col-md-5'>
-                        <div className='testimonial-image-container'>
+                        <div className='    '>
                         <img src={testimonial.image} alt="Testimonial" className='testimonial-image' width="100%" />
                     </div>
                     </div>
@@ -103,6 +108,7 @@ const TestimonialSection = () => {
                         />
                     ))}
                 </div>
+                </VisibleReveal>
         </div>
     );
 }

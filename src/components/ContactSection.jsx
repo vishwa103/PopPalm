@@ -1,6 +1,8 @@
 import React from 'react'
 import ContactImage from "../assets/ContactImage.png";
 import ContactDesignLeft from "../assets/ContactDesignLeft.png";
+import LeftToRightReveal from './LeftToRightReveal';
+import VisibleReveal from './VisibleReveal';
 
 
 
@@ -10,9 +12,12 @@ const ContactSection = () => {
             <div className='contact-design-left'>
                         <img src={ContactDesignLeft} alt="ContactImage" />
                         </div>
+                        <LeftToRightReveal>
             <div className='d-flex align-items-center'>
                 <h1 className='title '>Get In Touch </h1>&nbsp;&nbsp; <div className='subtitle mt-5'> Expecting your calls</div>
             </div>
+            </LeftToRightReveal>
+            <VisibleReveal>
             <div className='contact-container'>
                 <div className='row'>
                     <div className='col-md-6 my-4'>
@@ -52,6 +57,7 @@ const ContactSection = () => {
                 </div>
 
             </div>
+            </VisibleReveal>
         </div>
     )
 }

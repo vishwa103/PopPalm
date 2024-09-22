@@ -1,13 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const TextReveal = ({ children }) => {
+const TopToBottomReveal = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const titleRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting);
+        if (entry.isIntersecting && !hasAnimated) {
+          setIsVisible(true);
+          setHasAnimated(true); // Ensure the animation happens only once
+        }
       },
       { threshold: 0.1 } // Adjust based on when you want to trigger the animation
     );
@@ -21,16 +25,16 @@ const TextReveal = ({ children }) => {
         observer.unobserve(titleRef.current);
       }
     };
-  }, []);
+  }, [hasAnimated]);
 
   return (
     <div
       ref={titleRef}
-      className={`text-reveal ${isVisible ? 'animate' : ''}`}
+      className={`top-to-bottom-reveal ${isVisible ? 'tbanimate' : ''}`}
     >
-      <span>{children}</span> {/* Wrap content inside span */}
+      <div className="tbreveal-content">{children}</div>
     </div>
   );
 };
 
-export default TextReveal;
+export default TopToBottomReveal;

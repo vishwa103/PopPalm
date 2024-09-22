@@ -20,11 +20,11 @@ const Footer = () => {
           </div>
           <div className='col-md-6 my-4'>
             <div className='footer-links'>
-          <a className='footer-link' href="#home">Home</a>
-          <a className='footer-link' href="#about">About Us</a>
-          <a className='footer-link' href="#services">Services</a>
-          <a className='footer-link' href="#gallery">Gallery</a>
-          <a className='footer-link' href="#contact">Contact Us</a>
+          <a className='footer-link' href="#/#home">Home</a>
+          <a className='footer-link' href="#/#about">About Us</a>
+          <a className='footer-link' href="#/#service">Services</a>
+          <a className='footer-link' href="#/gallery">Gallery</a>
+          <a className='footer-link' href="#/#contact">Contact Us</a>
           </div>
           </div>
           <div className='col-md-3 my-4'>
