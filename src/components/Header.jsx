@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   
   return (
-    <Navbar bg="transparent" expand="lg" fixed="top" className="header">
+    <Navbar bg="transparent" expand="lg"  className="header">
           <Navbar.Brand href='#/#home' className="ml-auto">
           <img
             src={logo}
@@ -25,7 +25,7 @@ const Header = () => {
           <Nav.Link href="#/#about">About Us</Nav.Link>
           <Nav.Link as={Link} to="/services">Services</Nav.Link>
           <Nav.Link as={Link} to="/gallery">Gallery</Nav.Link>
-          <Nav.Link href="#/#contact">Contact Us</Nav.Link>
+          <Nav.Link href='https://us.bigin.online/org868107012/forms/enquiry-form'  target='_blank' rel="noopener noreferrer" >Contact Us</Nav.Link>
         </Nav>
         
       </Navbar.Collapse>

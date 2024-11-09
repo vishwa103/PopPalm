@@ -2,31 +2,46 @@ import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import TestimonialDesignLeft from "../assets/TestimonialDesignLeft.png";
 import TestimonialDesignRight from "../assets/TestimonialDesignRight.png";
-import TestimonialImageOne from "../assets/TestimonialImageOne.png";
-import TestimonialImageTwo from "../assets/TestimonialImageTwo.png";
-import TestimonialImageThree from "../assets/TestimonialImageThree.png";
+import TestimonialSheliza from "../assets/TestimonialSheliza.jpeg";
+import TestimonialStephanie from "../assets/TestimonialStephanie.jpeg";
+import TestimonialNikitha from "../assets/TestimonialNikitha.jpeg";
+import TestimonialVanusha from "../assets/TestimonialVanusha.jpg";
+import TestimonialNilofar from "../assets/TestimonialNilofar.jpeg";
+
 import TestimonialUserLine from "../assets/TestimonialUserLine.png";
 import LeftToRightReveal from './LeftToRightReveal';
 import VisibleReveal from './VisibleReveal';
 
 const testimonials = [
     {
-        image: TestimonialImageOne,
-        title: "Corporate Gala",
-        description: `“We hired this company to decorate our annual corporate gala, and they exceeded all expectations. The attention to detail was impeccable, and the decor perfectly reflected our brand's image. The event was a huge success, and our clients were thoroughly impressed. We look forward to working with them again for future events.”`,
-        username: " Jane D., HR Manager, Helfa Corporation",
+        image: TestimonialSheliza,
+
+        description: `“I recently did my daughter’s 3rd birthday at home, I reached out to Pop & Palm and they did such a wonderful set up. It was beautiful and very clean.
+I appreciate the time and effort it took for them to set it up and the real test was the balloons which didn’t pop at all despite the humidity being quite awful that particular day.
+I appreciate the small details taken into consideration and the honesty and transparency.
+The owners could have sold many services but they were honest about what should be done etc which I respected immensely.
+I would recommend them again and have some plans for some future events.”`,
+        username: " Sheliza Mohammed ",
     },
     {
-        image: TestimonialImageTwo,
-        title: "Princess Charm’s Birthday",
-        description: `“I wanted my daughter's birthday party to be extra special, and they delivered beyond my wildest dreams! The themed decorations were vibrant and fun, and every little detail was taken care of. My daughter and her friends had an amazing time, and the memories we made that day will last a lifetime. I highly recommend their services for any special occasion!”`,
-        username: " Emily R & Charm",
+        image: TestimonialStephanie,
+
+        description: `“Their services were top notch from first contact through execution to the very end of our function. I am so happy with how everything turned out and highly recommend them to anyone who doesn't enjoy planning and DIYing things or simply just doesn't have the time to do it and would rather leave it to the professionals. It truly allowed for our family to enjoy our baby's birthday and be present.”`,
+        username: "Stephanie Gnanaskandan",
     },
     {
-        image: TestimonialImageThree,
-        title: "Mr & Mrs. Just Married",
-        description: `“Our wedding day was nothing short of magical, thanks to the incredible team behind our decor. They listened to every detail of our vision and brought it to life in the most breathtaking way. From the floral arrangements to the reception setup, everything was perfect. Our guests couldn't stop raving about how beautiful everything looked. We can't thank them enough for making our day unforgettable!”`,
-        username: "Sarah & Mark",
+        image: TestimonialNikitha,
+        description: `“Our event couldn’t have got any better without pop and palm events organising it fabulously and seamlessly for us. Their meticulous planning along with exquisite ideation made it a perfect execution.Aishwarya’s commitment towards our tailor made requirements is appreciated.Kani and Aishwarya’s valuable contribution made an impressive decor for our special occasion. We highly recommend Pop and Palm for organising your events.”`,
+        username: "Nikitha Ramachandra",
+    }, {
+        image: TestimonialVanusha,
+        description: `“I cannot be grateful of how my Ganpati decor looked. It was the best ever decor and we all were surprised how it was all made with fresh flowers and it stayed for 7 days looking exactly the same🥰 the team was quick and so so so nice. It’s totally value for money. I strongly recommend supporting them and am sure they would be doing all types of event”`,
+        username: "Vanusha Tengry",
+    }, {
+        image: TestimonialNilofar           ,
+        description: `“Very talented and innovative. Always ready with new ideas and the whole team is well organised and hard working. I have booked 4 to 5 events with them and I must say everytime there was something new and exciting. I would highly recommend them for all occasions and celebrations.
+Thanku Pop & Palm Events Management Team.”`,
+        username: "Nilofar Merchant ",
     },
     // Add more testimonials here
 ];
@@ -63,43 +78,43 @@ const TestimonialSection = () => {
                 <img src={TestimonialDesignRight} alt="TestimonialDesignRight" />
             </div>
             <LeftToRightReveal>
-            <div className='d-flex align-items-center'>
-                <h1 className='title '>Testimonials </h1>&nbsp;&nbsp; <div className='subtitle mt-5'> Here from our Clients</div>
-            </div>
+                <div className='d-flex align-items-center'>
+                    <h1 className='title '>Testimonials </h1>&nbsp;&nbsp; <div className='subtitle mt-5'> Here from our Clients</div>
+                </div>
             </LeftToRightReveal>
             <VisibleReveal>
-            <div className='testimonial-container'>
-                <motion.div
-                    initial={{ opacity: 1 }}
-                    animate={controls}
-                    transition={{ duration: 1 }} // Fade duration
-                    className='row'
-                >
-                    <div className='col-md-5'>
-                        <div className='    '>
-                        <img src={testimonial.image} alt="Testimonial" className='testimonial-image' width="100%" />
-                    </div>
-                    </div>
-                    <div className='col-md-7 py-4'>
-                        <div className='testimonial-content'>
-                            <div>
-                                <h1 className='testimonial-title'>{testimonial.title}</h1>
-                                <div className='testimonial-description'>
-                                    {testimonial.description}
-                                </div>
+                <div className='testimonial-container'>
+                    <motion.div
+                        initial={{ opacity: 1 }}
+                        animate={controls}
+                        transition={{ duration: 1 }} // Fade duration
+                        className='row'
+                    >
+                        <div className='col-md-5'>
+                            <div className='testimonial-image-container'>
+                                <img src={testimonial.image} alt="Testimonial" className='testimonial-image' width="100%" />
                             </div>
-                            <div className='d-flex align-items-center gap-2'>
-                                <img src={TestimonialUserLine} alt='TestimonialUserLine' height='8px' />
-                                <div className='testimonial-username'>
-                                    {testimonial.username}
+                        </div>
+                        <div className='col-md-7 py-4'>
+                            <div className='testimonial-content'>
+                                <div>
+                                    <h1 className='testimonial-title'>{testimonial.title}</h1>
+                                    <div className='testimonial-description'>
+                                        {testimonial.description}
+                                    </div>
+                                </div>
+                                <div className='d-flex align-items-center gap-2'>
+                                    <img src={TestimonialUserLine} alt='TestimonialUserLine' height='8px' />
+                                    <div className='testimonial-username'>
+                                        {testimonial.username}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </motion.div>
-                
-            </div>
-            <div className='indicators'>
+                    </motion.div>
+
+                </div>
+                <div className='indicators'>
                     {testimonials.map((_, index) => (
                         <div
                             key={index}
@@ -108,7 +123,7 @@ const TestimonialSection = () => {
                         />
                     ))}
                 </div>
-                </VisibleReveal>
+            </VisibleReveal>
         </div>
     );
 }

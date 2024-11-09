@@ -6,19 +6,20 @@ import Gallery from './pages/Gallery';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Services from './pages/Services';
+import GalleryImages from './pages/GalleryImages';
 
 function App() {
   return (
     <div className='global-style'>
-      <HashRouter>
+    
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/gallery' element={<Gallery />} />
+          <Route path='/gallery/:category?' element={<Gallery />} />
+          <Route path='/galleryimages/:category' element={<GalleryImages />} />
           <Route path='/services' element={<Services />} />
         </Routes>
         <Footer />
-      </HashRouter>
     </div>
   )
 }

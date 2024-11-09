@@ -12,10 +12,10 @@
   font-style: normal;
 }
 
-html {
-  scroll-behavior: smooth;
+html, body {
+  overflow-y: auto; /* Allow vertical scrolling */
+  height: 100%; /* Ensure body takes full height */
 }
-
 
 
 
@@ -46,7 +46,7 @@ h6 {
 }
 
 /* styles.css or your CSS-in-JS solution */
-.left-to-right-reveal {
+.left-to-right-reveal { 
   overflow: hidden;
   white-space: nowrap;
   position: relative;
@@ -151,12 +151,17 @@ h6 {
   overflow-x: hidden;
 }
 
+.socialmedia-icons{
+  color: var(--border-color);
+  margin: 0;
+  padding: 0;
+}
+
 /* HEADER */
 .header {
-  position: relative;
-  padding: 10px 20px;
-  z-index: 1000;
-  /* Ensure it's on top of other elements */
+  position: relative; /* Use relative positioning */
+  z-index: 1000; /* Ensure it's above other elements */
+  width: 100%; /* Full width */
 }
 
 .navbar-nav {
@@ -195,6 +200,7 @@ h6 {
   position: relative;
   width: 100vw;
   height: 100vh;
+  top: -93px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,6 +208,17 @@ h6 {
   overflow: hidden;
   /* Ensure no overflow from positioned elements */
 }
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Adjust opacity as needed */
+  pointer-events: none; /* Prevents blocking interactions */
+}
+
 
 .leaf-right,
 .leaf-left {
@@ -261,8 +278,8 @@ h6 {
   margin: 0;
   white-space: nowrap;
   /* Set the SVG image as the text fill */
-  background: var(--primary-color);
-  /* background-image: url('./assets/TextImage.svg'); Replace with your SVG path */
+  /* background: var(--primary-color); */
+  background-image: url('./assets/TextImage.svg'); 
   background-size: cover;
   /* Ensures the SVG covers the text area */
   -webkit-background-clip: text;
@@ -293,7 +310,7 @@ h6 {
 
   .hero-subtitle,
   .hero-title {
-    font-size: 60px;
+    font-size: 48px;
     /* Smaller font size for mobile screens */
   }
 
@@ -306,7 +323,8 @@ h6 {
 
   .hero-subtitle,
   .hero-title {
-    font-size: 30px;
+    font-size: 18px;
+    font-weight: 800  ;
     /* Even smaller font size for very small screens */
   }
 }
@@ -352,6 +370,7 @@ h6 {
   position: relative;
   width: 100%;
   margin: 10px 0;
+  border-radius: 20px;
   z-index: 3;
 }
 
@@ -396,6 +415,10 @@ h6 {
   margin: 20px 0;
   font-size: 16px;
   font-weight: 300;
+}
+
+.service-description-container{
+  min-height: 260px;
 }
 
 .service-item-hr {
@@ -512,7 +535,7 @@ h6 {
 
 .testimonial-image {
   object-fit: cover;
-  height: 100%;
+  height: 450px;
   border-radius: 10px;
 }
 
@@ -544,14 +567,19 @@ h6 {
   position: relative;
   width: 100%;
   padding: 0px 20px;
-
   padding-top: 70px;
   z-index: 2;
 }
 
 .contact-title {
   font-size: 34px;
-  font-weight: 200;
+  font-weight: 100;
+}
+
+.contact-subtitle{
+  font-size: 24px;
+  color: var(--black-color);
+  font-weight: 300;
 }
 
 .contact-label {
@@ -575,11 +603,21 @@ h6 {
 }
 
 .button-primary {
+  margin: 10px;
   border: none;
   padding: 10px 20px;
   border-radius: 6px;
   color: white;
   background: var(--secondary-color);
+}
+
+.button-secondary{
+  margin: 10px;
+  border: 1px solid var(--secondary-color);
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: var(--secondary-color);
+  background: white;
 }
 
 
@@ -639,6 +677,7 @@ h6 {
   position: relative;
   width: 100vw;
   height: 100vh;
+  top:-93px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -682,11 +721,36 @@ h6 {
   gap: 20px;
 }
 
+.gallery-image-container{
+  position: relative;
+  object-fit: cover;
+  height: 450px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.gallery-image {
+
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+
+}
+
+
 .gallerypage-category {
   color: var(--primary-color);
   background: var(--secondary-color);
   padding: 5px 25px;
   border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.gallerypage-category.active{
+  background: var(--primary-color);
+  color: white; 
 }
 
 .gallerypage-card {
@@ -699,6 +763,14 @@ h6 {
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+
+.button-gallery{
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  color: white;
+  background: var(--secondary-color);
 }
 
 .gallerypage-leftimage {
@@ -837,13 +909,14 @@ h6 {
 }
 
 .gallerypage-image-title {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   line-height: 1.2;
+  margin-bottom: 15px;
 }
 
 .gallerypage-image-description {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 200;
 }
 
@@ -883,7 +956,7 @@ h6 {
   border: 1px solid var(--border-color);
   min-height: 320px;
   border-radius: 10px;
-  padding: 20px;
+  padding: 30px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -892,19 +965,19 @@ h6 {
 .servicepage-card-title {
   color: var(--primary-color);
   font-weight: 600;
-  font-size: 28px;
+  font-size: 36px;
   margin-top: 10px;
 }
 
 .servicepage-card-description{
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
 .servicepage-card-image-container{
   position: relative;
   object-fit: cover;
-  height: 100%;
+  height: 380px;
   border-radius: 10px;
 }
 

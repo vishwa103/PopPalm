@@ -77,6 +77,7 @@ const HeroSection = () => {
           width={1920}
           height={1080}
         />
+        <div className='image-overlay' />
         <div className='hero-subtitle-wrapper'>
           <motion.div
             initial={{ x: 0 }}

@@ -37,11 +37,11 @@ const Home = () => {
         <AboutUSSection />
       </section>
 
-      <section id="services">
+      <section>
         <ServicesSection />
       </section>
 
-      <section id="gallery">
+      <section>
         <GallerySection />
       </section>
 

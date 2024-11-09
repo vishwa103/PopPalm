@@ -3,8 +3,8 @@ import { motion, useInView } from 'framer-motion';
 import LeafRight from "../assets/aboutusLeftDesign.png";
 import LeafLeft from "../assets/aboutusRightDesign.png";
 import AboutusStar from "../assets/aboutusStar.png";
-import AboutusImageOne from "../assets/aboutusImageOne.png";
-import AboutusImageTwo from "../assets/aboutusImageTwo.png";
+import AboutusImageOne from "../assets/OurStorysImage (1).jpg";
+import AboutusImageTwo from "../assets/OurStorysImage (2).jpg";
 import AboutusCraker from "../assets/aboutusCraker.png";
 import LeftToRightReveal from './LeftToRightReveal';
 import TopToBottomReveal from './TopToBottomReveal';
@@ -38,12 +38,12 @@ const AboutUSSection = () => {
                 <div className='col-md-4'>
 
                     <TopToBottomReveal>
-                        <img src={AboutusImageOne} className='aboutus-image' alt="AboutusImageOne" />
+                        <img src={AboutusImageOne} className='aboutus-image' alt="AboutusImageOne" height="100%" />
                     </TopToBottomReveal>
                 </div>
                 <div className='col-md-8' style={{ position: "relative" }}>
                 <TopToBottomReveal>
-                    <img src={AboutusImageTwo} className='aboutus-image' alt="AboutusImageTwo" />
+                    <img src={AboutusImageTwo} className='aboutus-image' alt="AboutusImageTwo" height="100%" />
                     </TopToBottomReveal>
                     <img src={AboutusCraker} className='aboutus-cracker' alt="AboutusCraker" />
                    
