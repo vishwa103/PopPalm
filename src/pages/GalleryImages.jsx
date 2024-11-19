@@ -61,6 +61,8 @@ import Newbeginnings8 from "../assets/Website photos/Private events/New beginnin
 import Newbeginnings9 from "../assets/Website photos/Private events/New beginnings/New beginnings (9).jpg";
 import Newbeginnings10 from "../assets/Website photos/Private events/New beginnings/New beginnings (10).jpg";
 import Newbeginnings11 from "../assets/Website photos/Private events/New beginnings/New beginnings (11).jpg";
+import Newbeginnings12 from "../assets/Website photos/Private events/New beginnings/New beginnings.jpeg";
+
 
 import WeddingsandReception1 from "../assets/Website photos/Private events/Weddings and Reception/Weddings and Reception (1).jpg";
 import WeddingsandReception2 from "../assets/Website photos/Private events/Weddings and Reception/Weddings and Reception (2).jpg";
@@ -130,17 +132,17 @@ const GalleryImages = () => {
     const images = {
         "birthdayparties": [
             BirthdayParties1,
-            BirthdayParties2,
+            // BirthdayParties2,
             BirthdayParties3,
             BirthdayParties4,
             BirthdayParties5,
-            BirthdayParties6,
+            // BirthdayParties6,
             BirthdayParties7,
             BirthdayParties8,
-            BirthdayParties9,
+            // BirthdayParties9,
             BirthdayParties10,
             BirthdayParties11,
-            BirthdayParties12,
+            // BirthdayParties12,
             BirthdayParties13,
             BirthdayParties14,
         ],
@@ -156,6 +158,7 @@ const GalleryImages = () => {
             Newbeginnings9,
             Newbeginnings10,
             Newbeginnings11,
+            Newbeginnings12,
         ],
         "weddingsandreception": [
             WeddingsandReception1,
@@ -172,7 +175,7 @@ const GalleryImages = () => {
             Festivaldecor5,
             Festivaldecor6,
             Festivaldecor7,
-            Festivaldecor8,
+            // Festivaldecor8,
             Festivaldecor9,
             Festivaldecor10,
             Festivaldecor11,
@@ -185,7 +188,7 @@ const GalleryImages = () => {
             Festivaldecor18,
             Festivaldecor19,
             Festivaldecor20,
-            Festivaldecor21,
+            // Festivaldecor21,
             Festivaldecor22,
             Festivaldecor23,
             Festivaldecor24,
@@ -194,7 +197,7 @@ const GalleryImages = () => {
             Festivaldecor27,
             Festivaldecor28,
             // Festivaldecor29,
-            Festivaldecor30,
+            // Festivaldecor30,
 
         ],
         // "productlaunchdecor": [
@@ -216,7 +219,7 @@ const GalleryImages = () => {
             CorporateRetreats6,
             CorporateRetreats7,
             CorporateRetreats8,
-            CorporateRetreats9,
+            // CorporateRetreats9,
 
 
         ],"teambuildingevents": [

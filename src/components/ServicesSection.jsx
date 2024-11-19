@@ -132,7 +132,7 @@ const ServicesSection = () => {
           <TopToBottomReveal>
             <div className='d-flex align-items-center gap-3'>
               <h1 className='service-number'>04</h1>
-              <div className='service-title'>Quizzy beez</div>
+              <div className='service-title'>Quizzy Beez</div>
             </div>
             <div className='service-subtitle '>
 
