@@ -106,6 +106,15 @@ import Rentals5 from "../assets/Website photos/Rentals/Rentals (5).jpg";
 import Rentals6 from "../assets/Website photos/Rentals/Rentals (6).jpg";
 import Rentals7 from "../assets/Website photos/Rentals/Rentals (7).jpg";
 import Rentals8 from "../assets/Website photos/Rentals/Rentals (8).jpg";
+import Rentals9 from "../assets/Website photos/Rentals/Rentals (9).jpg";
+import Rentals10 from "../assets/Website photos/Rentals/Rentals (10).jpg";
+import Rentals11 from "../assets/Website photos/Rentals/Rentals (11).jpg";
+import Rentals12 from "../assets/Website photos/Rentals/Rentals (12).jpg";
+import Rentals13 from "../assets/Website photos/Rentals/Rentals (13).jpg";
+import Rentals14 from "../assets/Website photos/Rentals/Rentals (14).jpg";
+import Rentals15 from "../assets/Website photos/Rentals/Rentals (15).jpg";
+import Rentals16 from "../assets/Website photos/Rentals/Rentals (16).jpg";
+
 
 
 
@@ -215,7 +224,7 @@ const GalleryImages = () => {
             CorporateRetreats2,
             CorporateRetreats3,
             CorporateRetreats4,
-            CorporateRetreats5,
+            // CorporateRetreats5,
             CorporateRetreats6,
             CorporateRetreats7,
             CorporateRetreats8,
@@ -262,6 +271,14 @@ const GalleryImages = () => {
             Rentals6,
             Rentals7,
             Rentals8,
+            Rentals9,
+            Rentals10,
+            Rentals11,
+            Rentals12,
+            Rentals13,
+            Rentals14,
+            Rentals15,
+            Rentals16,
         ],
     };
 

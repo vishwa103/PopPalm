@@ -38,7 +38,7 @@ I would recommend them again and have some plans for some future events.”`,
         description: `“I cannot be grateful of how my Ganpati decor looked. It was the best ever decor and we all were surprised how it was all made with fresh flowers and it stayed for 7 days looking exactly the same🥰 the team was quick and so so so nice. It’s totally value for money. I strongly recommend supporting them and am sure they would be doing all types of event”`,
         username: "Vanusha Tengry",
     }, {
-        image: TestimonialNilofar           ,
+        image: TestimonialNilofar,
         description: `“Very talented and innovative. Always ready with new ideas and the whole team is well organised and hard working. I have booked 4 to 5 events with them and I must say everytime there was something new and exciting. I would highly recommend them for all occasions and celebrations.
 Thanku Pop & Palm Events Management Team.”`,
         username: "Nilofar Merchant ",
@@ -48,19 +48,22 @@ Thanku Pop & Palm Events Management Team.”`,
 
 const TestimonialSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
     const controls = useAnimation();
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            controls.start({ opacity: 0 })
-                .then(() => {
-                    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-                    controls.start({ opacity: 1 });
-                });
-        }, 5000); // Change every 5 seconds
+        if (!isPaused) {
+            const interval = setInterval(() => {
+                controls.start({ opacity: 0 })
+                    .then(() => {
+                        setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+                        controls.start({ opacity: 1 });
+                    });
+            }, 10000); // Change every 15 seconds
 
-        return () => clearInterval(interval);
-    }, [controls]);
+            return () => clearInterval(interval);
+        }
+    }, [controls, isPaused]);
 
     const testimonial = testimonials[currentIndex];
 
@@ -70,7 +73,10 @@ const TestimonialSection = () => {
     };
 
     return (
-        <div className='testimonial-section my-5'>
+        <div
+            className='testimonial-section my-5'
+
+        >
             <div className='testimonial-design-left'>
                 <img src={TestimonialDesignLeft} alt="TestimonialDesignLeft" />
             </div>
@@ -79,11 +85,13 @@ const TestimonialSection = () => {
             </div>
             <LeftToRightReveal>
                 <div className='d-flex align-items-center'>
-                    <h1 className='title '>Testimonials </h1>&nbsp;&nbsp; <div className='subtitle mt-5'> Hear from our Clients</div>
+                    <h1 className='title '>Testimonials </h1>&nbsp;&nbsp;
+                    <div className='subtitle mt-5'> Hear from our Clients</div>
                 </div>
             </LeftToRightReveal>
             <VisibleReveal>
-                <div className='testimonial-container'>
+                <div className='testimonial-container' onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}>
                     <motion.div
                         initial={{ opacity: 1 }}
                         animate={controls}
@@ -112,7 +120,6 @@ const TestimonialSection = () => {
                             </div>
                         </div>
                     </motion.div>
-
                 </div>
                 <div className='indicators'>
                     {testimonials.map((_, index) => (

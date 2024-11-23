@@ -724,7 +724,7 @@ h6 {
 .gallery-image-container{
   position: relative;
   object-fit: cover;
-  height: 450px;
+  height: 480px;
   width: 100%;
   border-radius: 10px;
 }

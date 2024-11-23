@@ -3,7 +3,7 @@ import React from 'react';
 import KidsBirthdayPartiesServiceImage from "../assets/ServicePageImages/KidsBirthdayPartiesServiceImage.jpg";
 import CorporateEventsServiceImage from "../assets/ServicePageImages/CorporateEventsServiceImage.jpg";
 import RentalServiceImage from "../assets/ServicePageImages/RentalServiceImage.jpg";
-import QuizzyBeezServiceImage from "../assets/ServicePageImages/QuizzyBeesServiceImage.jpg";
+import QuizzyBeezServiceImage from "../assets/ServicePageImages/QuizzyBeez.svg";
 import galleryPageLeftBottom from "../assets/galleryPageLeftBottom.png";
 import galleryPageRightTop from "../assets/galleryPageRightTop.png";
 import { Link } from 'react-router-dom';

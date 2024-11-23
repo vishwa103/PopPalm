@@ -141,7 +141,7 @@ import { HashLink } from 'react-router-hash-link';
                       </div>
                   </section>
               </div>
-              <div className='my-5 mx-4'>
+              <div className='my-3 mx-4'>
                   <div className='gallerypage-categories'>
                   {categories.map(categoryName => (
                         <Link
